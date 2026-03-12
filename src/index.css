@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ──────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 20% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 8%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 47% 11%;
+    --ring: 222 47% 11%;
+    --radius: 0.5rem;
+  }
+}
+
+/* ── Base resets ────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Keyboard focus — only shows on keyboard navigation, not mouse clicks */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ── Scroll-reveal animation system ─────────────────────────────────────── */
+/*
+ * Pattern:
+ *   1. A container gets class "reveal" (initially children are invisible).
+ *   2. When the container enters the viewport, JS adds "is-visible".
+ *   3. Children with "card-item" animate in with CSS, staggered via
+ *      the --stagger-delay custom property set inline on each child.
+ *   4. The container header uses "reveal-header" for a slightly faster
+ *      fade-up with no stagger.
+ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Children start invisible */
+.reveal .reveal-header,
+.reveal .card-item {
+  opacity: 0;
+}
+
+/* Container header — no stagger, slightly faster */
+.reveal.is-visible .reveal-header {
+  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Cards — staggered via --stagger-delay */
+.reveal.is-visible .card-item {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay, 0ms) both;
+}
+
+/* Honour user's motion preferences — skip all animation */
+@media (prefers-reduced-motion: reduce) {
+  .reveal .reveal-header,
+  .reveal .card-item {
+    opacity: 1;
+    animation: none !important;
+  }
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+
+/* Hide scrollbar while preserving scroll behaviour (used in mobile strip) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

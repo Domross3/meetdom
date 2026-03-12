@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+.next/
+__pycache__/
+.venv/
+venv/
+env/
+*.mp4
+*.mov
+*.zip
