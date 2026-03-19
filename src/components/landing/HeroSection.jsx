@@ -56,12 +56,23 @@ export default function HeroSection() {
                 onError={(e) => { e.currentTarget.style.display = 'none' }}
               />
             </div>
-            <a
-              href="mailto:michros@umich.edu"
-              className="mt-3 block text-sm text-muted-foreground hover:text-foreground transition-colors text-center"
-            >
-              michros@umich.edu
-            </a>
+            <div className="mt-3 flex items-center justify-center gap-3">
+              <a
+                href="mailto:michros@umich.edu"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                michros@umich.edu
+              </a>
+              <span className="text-border">·</span>
+              <a
+                href="https://www.linkedin.com/in/dom-ross"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
 
         </div>
