@@ -24,7 +24,7 @@ export default function HeroSection() {
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mb-12">
               I am majoring in computer science and cognitive science at the University of Michigan,
               with minors in business, philosophy, and entrepreneurship. Michigan ranks top 10 in all five, which is probably less of a flex
-              and more an explanation for why I haven't graduated yet.
+              and more an explanation for why I haven't graduated yet. I developed this website to make my education more interactive and engaging.
             </p>
 
             {/* CTAs */}
