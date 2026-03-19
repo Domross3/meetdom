@@ -56,10 +56,24 @@ export default function NavBar() {
               Timeline
             </Link>
 
-            {/* External — opens in same tab; update href when resume is ready */}
+            <Link
+              to="/projects"
+              aria-current={pathname === '/projects' ? 'page' : undefined}
+              className={cn(
+                'text-sm font-medium transition-colors duration-150',
+                pathname === '/projects'
+                  ? 'text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Projects
+            </Link>
+
             <a
-              href="#"
-              aria-label="Download resume (PDF)"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View resume (PDF)"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-150"
             >
               Resume ↗

@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from '@/components/layout/NavBar'
 import Landing from '@/pages/Landing'
 import DisciplinePage from '@/pages/DisciplinePage'
+import ProjectsPage from '@/pages/ProjectsPage'
+import ProjectDetailPage from '@/pages/ProjectDetailPage'
 
 /*
  * TimelinePage is the heaviest view (IntersectionObserver logic, full course
@@ -26,6 +28,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/discipline/:slug" element={<DisciplinePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:id" element={<ProjectDetailPage />} />
         <Route
           path="/timeline"
           element={
