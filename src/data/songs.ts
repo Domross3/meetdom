@@ -23,5 +23,5 @@ export const songs: Song[] = [
   { title: 'Third Stone From the Sun', artist: 'Jimi Hendrix', url: 'https://open.spotify.com/track/34jAhU99TNRvYwwOEoINl3' },
   { title: 'Lavender Buds', artist: 'MF DOOM', url: 'https://open.spotify.com/track/5j42r1PmIbM6fZSe11O08C' },
   { title: 'No Quarter', artist: 'Led Zeppelin', url: 'https://open.spotify.com/track/0GRBFjza23Im7Xb16c9AaK' },
-  { title: 'Because (A Capella)', artist: 'The Beatles', url: 'https://open.spotify.com/track/5joRE018kvW87xEknBp8cS' },
+  { title: 'Because (A Cappella)', artist: 'The Beatles', url: 'https://open.spotify.com/track/5joRE018kvW87xEknBp8cS' },
 ]
