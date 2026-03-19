@@ -57,7 +57,7 @@ export const DISCIPLINES: DisciplineMeta[] = [
     slug: 'extracurricular',
     label: 'Extracurricular',
     key: 'Extracurricular',
-    description: "The courses that don't fit a box — and are better for it.",
+    description: "Classes I took that count for nothing",
     colorClass: 'bg-slate-100 text-slate-600',
     barColor: '#64748b',
     requiredCredits: 0,

@@ -76,10 +76,10 @@ export const projects: Project[] = [
     resources: [
       { label: 'LinkedIn post from Impact Studio', url: 'https://www.linkedin.com/posts/1-in-3-people-globally-cook-over-open-fires-share-7402428748479791105-mSht' },
       { label: 'Entrepreneurial Leadership Program', url: 'https://cfe.umich.edu/launch/entrepreneurial-leadership-program/' },
-      { label: 'Professor Grace Hsai Haberl', url: 'https://www.linkedin.com/in/gracehsiahaberl/' },
+      { label: 'Professor Grace Hsia Haberl', url: 'https://www.linkedin.com/in/gracehsiahaberl/' },
     ],
     images: [
-      { src: '/projects/solstove-1.png', caption: 'Last day of the Entrepreneurial Leadership Program with our professor, Grace Hsai Haberl' },
+      { src: '/projects/solstove-1.png', caption: 'Last day of the Entrepreneurial Leadership Program with our professor, Grace Hsia Haberl' },
       { src: '/projects/solstove-2.png', caption: 'BCG visit — this one looks like it belongs in a commercial somewhere' },
       { src: '/projects/solstove-3.png', caption: 'Pitching to BCG consultants who were generous enough to give us feedback on our venture' },
       { src: '/projects/solstove-4.png', caption: 'A truly beautiful moment captured by lecture captcha where we all hit the pose from that one Weezer album' },

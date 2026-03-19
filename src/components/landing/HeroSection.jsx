@@ -17,7 +17,7 @@ export default function HeroSection() {
             <h1 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.08] mb-8">
               Welcome to my
               <br />
-              interactive education.
+              education.
             </h1>
 
             {/* Pitch */}

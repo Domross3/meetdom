@@ -163,26 +163,48 @@ export default function ProjectDetailPage() {
 
         {/* Image gallery */}
         {project.images && project.images.length > 0 && (
-          <div className="space-y-6">
-            <h2 className="text-lg font-semibold text-foreground">Gallery</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.images.map((img, i) => (
-                <figure key={i}>
-                  <div className="rounded-xl overflow-hidden border border-border bg-muted">
-                    <img
-                      src={img.src}
-                      alt={img.caption || `${project.title} screenshot ${i + 1}`}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  {img.caption && (
-                    <figcaption className="text-xs text-muted-foreground mt-2 px-1">
-                      {img.caption}
-                    </figcaption>
-                  )}
-                </figure>
-              ))}
-            </div>
+          <div>
+            <h2 className="text-lg font-semibold text-foreground mb-6">Gallery</h2>
+
+            {/* Hero image — first photo gets full width */}
+            <figure className="mb-6">
+              <div className="rounded-2xl overflow-hidden border border-border bg-muted shadow-sm">
+                <img
+                  src={project.images[0].src}
+                  alt={project.images[0].caption || `${project.title} photo 1`}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              {project.images[0].caption && (
+                <figcaption className="text-sm text-muted-foreground mt-3 text-center italic">
+                  {project.images[0].caption}
+                </figcaption>
+              )}
+            </figure>
+
+            {/* Remaining images in a grid */}
+            {project.images.length > 1 && (
+              <div className={`grid gap-5 ${project.images.length - 1 === 1 ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 sm:grid-cols-2'}`}>
+                {project.images.slice(1).map((img, i) => (
+                  <figure key={i + 1} className="group">
+                    <div className="rounded-2xl overflow-hidden border border-border bg-muted shadow-sm transition-shadow duration-300 group-hover:shadow-md">
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img
+                          src={img.src}
+                          alt={img.caption || `${project.title} photo ${i + 2}`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    </div>
+                    {img.caption && (
+                      <figcaption className="text-sm text-muted-foreground mt-3 px-1 text-center italic">
+                        {img.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
