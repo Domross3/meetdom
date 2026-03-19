@@ -343,7 +343,7 @@ const courses: Course[] = [
     year: 2024,
     transferCredit: false,
     credits: 4,
-    shortAnnotation: 'Had two hour classes tauhgt in Spanish four days a week, with oral exams and plenty of homework to earn "Spanish Proficiency" by university standards.',
+    shortAnnotation: 'Had two hour classes taught in Spanish four days a week, with oral exams and plenty of homework to earn "Spanish Proficiency" by university standards.',
     longAnnotation: '',
   },
 
@@ -381,7 +381,7 @@ const courses: Course[] = [
     year: 2024,
     transferCredit: false,
     credits: 3,
-    shortAnnotation: 'A class that felt sort of like therapy, highly introspective and focused on self-imporvement through proven frameworks.',
+    shortAnnotation: 'A class that felt sort of like therapy, highly introspective and focused on self-improvement through proven frameworks.',
     longAnnotation: '',
   },
   {
@@ -394,7 +394,7 @@ const courses: Course[] = [
     year: 2024,
     transferCredit: false,
     credits: 4,
-    shortAnnotation: 'A fascinating class hurt by it\'s instruction style. Learned low level mental processes of perception, representation, and language.',
+    shortAnnotation: 'A fascinating class hurt by its instruction style. Learned low level mental processes of perception, representation, and language.',
     longAnnotation: '',
   },
   {
@@ -432,7 +432,7 @@ const courses: Course[] = [
     year: 2025,
     transferCredit: false,
     credits: 4,
-    shortAnnotation: 'I felt like my fist CS upper level had to be AI. Learned about the algorithms and processes that drive AI.',
+    shortAnnotation: 'I felt like my first CS upper level had to be AI. Learned about the algorithms and processes that drive AI.',
     longAnnotation: '',
   },
   {
@@ -468,7 +468,7 @@ const courses: Course[] = [
     year: 2025,
     transferCredit: false,
     credits: 3,
-    shortAnnotation: 'Exactly what you  think.',
+    shortAnnotation: 'Exactly what you think.',
     longAnnotation: '',
   },
 
@@ -482,7 +482,7 @@ const courses: Course[] = [
     year: 2025,
     transferCredit: false,
     credits: 3,
-    shortAnnotation: 'Contini=uing ELP, the class acted as a guide for SolStove while continuing advanced entrepreneurship topics.',
+    shortAnnotation: 'Continuing ELP, the class acted as a guide for SolStove while continuing advanced entrepreneurship topics.',
     longAnnotation: '',
   },
   {
@@ -506,7 +506,7 @@ const courses: Course[] = [
     year: 2025,
     transferCredit: false,
     credits: 4,
-    shortAnnotation: 'This is responsible for me retunring to CS with a more intrinsic interest in the technology shaping our lives.',
+    shortAnnotation: 'This is responsible for me returning to CS with a more intrinsic interest in the technology shaping our lives.',
     longAnnotation: '',
   },
   {
@@ -562,7 +562,7 @@ const courses: Course[] = [
     year: 2026,
     transferCredit: false,
     credits: 4,
-    shortAnnotation: 'Returned to CS after my haitus with the lowest level course in the major, learning how computers work in 1\'s and 0\'s.',
+    shortAnnotation: 'Returned to CS after my hiatus with the lowest level course in the major, learning how computers work in 1\'s and 0\'s.',
     longAnnotation: '',
   },
   {
@@ -586,7 +586,7 @@ const courses: Course[] = [
     year: 2026,
     transferCredit: false,
     credits: 4,
-    shortAnnotation: 'Designing databeses using SQL and learning about the theory and architecture behind them.',
+    shortAnnotation: 'Designing databases using SQL and learning about the theory and architecture behind them.',
     longAnnotation: '',
   },
   {

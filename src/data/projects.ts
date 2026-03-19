@@ -82,7 +82,7 @@ export const projects: Project[] = [
       { src: '/projects/solstove-1.png', caption: 'Last day of the Entrepreneurial Leadership Program with our professor, Grace Hsia Haberl' },
       { src: '/projects/solstove-2.png', caption: 'BCG visit — this one looks like it belongs in a commercial somewhere' },
       { src: '/projects/solstove-3.png', caption: 'Pitching to BCG consultants who were generous enough to give us feedback on our venture' },
-      { src: '/projects/solstove-4.png', caption: 'A truly beautiful moment captured by lecture captcha where we all hit the pose from that one Weezer album' },
+      { src: '/projects/solstove-4.png', caption: 'A truly beautiful moment captured by Lecture Capture where we all hit the pose from that one Weezer album' },
     ],
 
   },
