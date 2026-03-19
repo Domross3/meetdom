@@ -141,6 +141,26 @@ export default function ProjectDetailPage() {
           </div>
         )}
 
+        {/* Resources */}
+        {project.resources && project.resources.length > 0 && (
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-foreground mb-4">Resources</h2>
+            <div className="flex flex-wrap gap-3">
+              {project.resources.map((r, i) => (
+                <a
+                  key={i}
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium border border-border rounded-full px-5 py-2.5 hover:border-foreground/30 hover:bg-secondary transition-all duration-200"
+                >
+                  {r.label} ↗
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Image gallery */}
         {project.images && project.images.length > 0 && (
           <div className="space-y-6">

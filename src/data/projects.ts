@@ -13,6 +13,7 @@ export interface Project {
   images?: { src: string; caption?: string }[]
   link?: string
   repo?: string
+  resources?: { label: string; url: string }[]
 }
 
 export const projects: Project[] = [
@@ -28,6 +29,9 @@ export const projects: Project[] = [
     disciplines: ['CS', 'CogSci', 'Entrepreneurship'],
     status: 'in-progress',
     startDate: '2026-03',
+    resources: [
+      { label: 'Pitch Deck', url: 'https://docs.google.com/presentation/d/11lgXRZc30GgV8F2prJc1EvT_9jU7GWyydpai0XFF-uY/edit?usp=sharing' },
+    ],
     images: [{ src: '/projects/modus-1.png', caption: 'The Modus team (left to right): Me, James, Antonio, and Hermann' }],
   },
   {
@@ -69,6 +73,9 @@ export const projects: Project[] = [
     disciplines: ['Business', 'Entrepreneurship'],
     status: 'paused',
     startDate: '2025-01',
+    resources: [
+      { label: 'LinkedIn post from Impact Studio', url: 'https://www.linkedin.com/posts/1-in-3-people-globally-cook-over-open-fires-share-7402428748479791105-mSht' },
+    ],
     images: [],
 
   },
