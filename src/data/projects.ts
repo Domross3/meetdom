@@ -51,10 +51,12 @@ export const projects: Project[] = [
   {
     id: 'education-portfolio',
     title: 'This Website',
-    tagline: 'Interactive education portfolio and project showcase',
+    tagline: 'Interactive education portfolio with AI-style site search',
     description:
-      'A personal portfolio built with React and Vite, featuring an interactive timeline of coursework, discipline deep-dives, and a project showcase. Deployed on Vercel with serverless backend capabilities for future complexity.',
-    tags: ['React', 'Vite', 'Tailwind', 'Vercel'],
+      'A personal portfolio built with React and Vite, featuring an interactive timeline of coursework, discipline deep-dives, a project showcase, and a natural-language search experience that points visitors to the most relevant pages about me. Deployed on Vercel with room to grow into more advanced backend or AI features later.',
+    details:
+      'The search experience is currently powered by a lightweight client-side retrieval layer over the site\'s structured content. It tokenizes and expands user questions, ranks relevant projects, disciplines, courses, and key pages, then returns a short synthesized answer with direct links into the site. The current stack keeps the experience fast and grounded in real site content, while leaving a clean seam for a future LLM-backed upgrade.',
+    tags: ['React', 'Vite', 'Tailwind', 'Retrieval Search', 'Vercel'],
     disciplines: ['CS'],
     status: 'in-progress',
     startDate: '2026-03',
