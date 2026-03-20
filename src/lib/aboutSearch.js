@@ -6,13 +6,28 @@ const STOP_WORDS = new Set([
   'a',
   'an',
   'and',
+  'any',
   'are',
   'about',
   'at',
   'be',
+  'been',
   'by',
+  'can',
+  'could',
+  'did',
+  'do',
+  'does',
+  'dom',
+  'ever',
   'for',
   'from',
+  'has',
+  'have',
+  'he',
+  'her',
+  'him',
+  'his',
   'how',
   'i',
   'in',
@@ -23,15 +38,19 @@ const STOP_WORDS = new Set([
   'of',
   'on',
   'or',
+  'should',
   'show',
+  'some',
   'tell',
   'that',
   'the',
   'to',
+  'was',
   'what',
   'which',
   'who',
   'with',
+  'would',
   'you',
   'your',
 ])
@@ -56,6 +75,21 @@ const QUERY_EXPANSIONS = {
   course: ['courses', 'class', 'timeline'],
   courses: ['course', 'class', 'timeline'],
   resume: ['cv', 'background', 'experience'],
+  // tech skills
+  react: ['javascript', 'frontend', 'web', 'jsx', 'ui', 'component'],
+  javascript: ['react', 'frontend', 'web', 'js', 'typescript'],
+  typescript: ['javascript', 'react', 'frontend', 'web'],
+  frontend: ['react', 'javascript', 'web', 'ui', 'component'],
+  python: ['programming', 'machine', 'learning', 'data', 'software'],
+  web: ['react', 'javascript', 'frontend', 'ui'],
+  software: ['programming', 'coding', 'computer', 'engineering'],
+  // experience / background queries
+  experience: ['projects', 'background', 'skills', 'work', 'built'],
+  skill: ['projects', 'background', 'experience', 'work'],
+  skills: ['projects', 'background', 'experience', 'work'],
+  background: ['experience', 'projects', 'courses', 'resume'],
+  built: ['projects', 'building', 'experience'],
+  work: ['projects', 'experience', 'building'],
 }
 
 const DISCIPLINE_ALIASES = {
@@ -68,7 +102,7 @@ const DISCIPLINE_ALIASES = {
 }
 
 const intentBoosts = {
-  project: ['project', 'projects', 'build', 'building', 'startup', 'startups'],
+  project: ['project', 'projects', 'build', 'building', 'startup', 'startups', 'experience', 'skill', 'skills', 'work', 'built'],
   course: ['course', 'courses', 'class', 'classes', 'study', 'studied', 'learn', 'learning'],
   discipline: ['discipline', 'major', 'minor', 'focus', 'focused'],
   page: ['resume', 'contact', 'email', 'linkedin', 'background'],
@@ -243,6 +277,7 @@ const documents = [
   titleTokenSet: new Set(tokenize(doc.title)),
   summaryTokenSet: new Set(tokenize(doc.summary)),
   tokenSet: new Set(tokenize(`${doc.title} ${doc.summary} ${doc.description} ${doc.body}`)),
+  chipsTokenSet: new Set(doc.chips.flatMap((chip) => tokenize(normalize(chip)))),
 }))
 
 function scoreIntent(type, tokens) {
@@ -262,6 +297,12 @@ function scoreDocument(doc, rawQuery, filteredTokens, expandedTokens) {
 
   for (const token of expandedTokens) {
     if (doc.titleTokenSet.has(token)) {
+      score += 4
+      matchedTerms.add(token)
+      continue
+    }
+
+    if (doc.chipsTokenSet.has(token)) {
       score += 4
       matchedTerms.add(token)
       continue
