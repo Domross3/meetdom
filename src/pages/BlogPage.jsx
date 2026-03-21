@@ -7,7 +7,12 @@ function formatDate(dateStr) {
   return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 }
 
-const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date))
+// Pinned first, then newest
+const sorted = [...posts].sort((a, b) => {
+  if (a.pinned && !b.pinned) return -1
+  if (!a.pinned && b.pinned) return 1
+  return b.date.localeCompare(a.date)
+})
 
 export default function BlogPage() {
   return (
@@ -27,54 +32,69 @@ export default function BlogPage() {
         {sorted.length === 0 ? (
           <p className="text-muted-foreground text-sm">Nothing here yet — check back soon.</p>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-5">
             {sorted.map((post) => (
-              <Link
-                key={post.id}
-                to={`/blog/${post.id}`}
-                className="block group"
-              >
-                <article className="border border-border rounded-2xl p-6 hover:border-foreground/20 hover:shadow-sm transition-all duration-200">
+              <Link key={post.id} to={`/blog/${post.id}`} className="block group">
+                <article className={`relative border rounded-2xl p-6 transition-all duration-200 hover:shadow-sm ${
+                  post.pinned
+                    ? 'border-foreground/20 bg-muted/40 hover:border-foreground/30'
+                    : 'border-border hover:border-foreground/20'
+                }`}>
+
+                  {/* Pinned badge */}
+                  {post.pinned && (
+                    <div className="flex items-center gap-1.5 mb-3">
+                      <svg
+                        width="11" height="11" viewBox="0 0 24 24" fill="currentColor"
+                        className="text-foreground/50"
+                      >
+                        <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+                      </svg>
+                      <span className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
+                        Pinned
+                      </span>
+                    </div>
+                  )}
+
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
                       <h2 className="text-xl font-semibold text-foreground group-hover:text-foreground/80 transition-colors">
                         {post.title}
-                        <span className="inline-block ml-2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity text-sm">→</span>
+                        <span className="inline-block ml-2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity text-sm">
+                          →
+                        </span>
                       </h2>
                       {post.subtitle && (
-                        <p className="text-sm text-muted-foreground">{post.subtitle}</p>
+                        <p className="text-sm text-muted-foreground mt-0.5">{post.subtitle}</p>
                       )}
                     </div>
-                    <span className="text-xs text-muted-foreground flex-shrink-0">
+                    <span className="text-xs text-muted-foreground flex-shrink-0 mt-0.5">
                       {formatDate(post.date)}
                     </span>
                   </div>
 
-                  {post.body && (
+                  {post.preview && (
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {post.body}
+                      {post.preview}
                     </p>
                   )}
 
-                  {post.tags && post.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-medium bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {post.videoUrl && (
-                    <p className="text-xs text-muted-foreground mt-3 flex items-center gap-1.5">
-                      <span className="inline-block w-2 h-2 rounded-full bg-red-500" />
-                      Video
-                    </p>
-                  )}
+                  <div className="flex items-center gap-3 flex-wrap">
+                    {post.tags && post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {post.videoUrl && (
+                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500" />
+                        Video
+                      </span>
+                    )}
+                  </div>
                 </article>
               </Link>
             ))}
