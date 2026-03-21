@@ -5,6 +5,7 @@ import Landing from '@/pages/Landing'
 import DisciplinePage from '@/pages/DisciplinePage'
 import ProjectsPage from '@/pages/ProjectsPage'
 import ProjectDetailPage from '@/pages/ProjectDetailPage'
+import BlogPage from '@/pages/BlogPage'
 
 /*
  * TimelinePage is the heaviest view (IntersectionObserver logic, full course
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/discipline/:slug" element={<DisciplinePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route
           path="/timeline"
           element={

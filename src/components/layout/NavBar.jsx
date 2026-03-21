@@ -69,6 +69,19 @@ export default function NavBar() {
               Projects
             </Link>
 
+            <Link
+              to="/blog"
+              aria-current={pathname === '/blog' ? 'page' : undefined}
+              className={cn(
+                'text-sm font-medium transition-colors duration-150',
+                pathname === '/blog'
+                  ? 'text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Blog
+            </Link>
+
             <a
               href="/resume.pdf"
               target="_blank"
