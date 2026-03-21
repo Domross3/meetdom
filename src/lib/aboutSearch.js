@@ -75,6 +75,19 @@ const QUERY_EXPANSIONS = {
   course: ['courses', 'class', 'timeline'],
   courses: ['course', 'class', 'timeline'],
   resume: ['cv', 'background', 'experience'],
+  // anthropic / ai safety
+  anthropic: ['claude', 'safety', 'ai', 'llm', 'constitutional', 'enterprise'],
+  claude: ['anthropic', 'llm', 'ai', 'model', 'safety'],
+  safety: ['anthropic', 'constitutional', 'alignment', 'ai', 'risk'],
+  llm: ['ai', 'model', 'claude', 'language', 'machine', 'learning'],
+  constitutional: ['ai', 'safety', 'anthropic', 'alignment'],
+  hallucination: ['safety', 'ai', 'reliability', 'anthropic'],
+  enterprise: ['business', 'anthropic', 'safety', 'finance', 'healthcare'],
+  regulation: ['safety', 'government', 'compliance', 'ai'],
+  bioweapon: ['safety', 'risk', 'anthropic', 'ai'],
+  pentagon: ['anthropic', 'government', 'safety', 'risk'],
+  presentation: ['blog', 'talk', 'anthropic', 'class'],
+  talk: ['blog', 'presentation', 'anthropic'],
   // tech skills
   react: ['javascript', 'frontend', 'web', 'jsx', 'ui', 'component'],
   javascript: ['react', 'frontend', 'web', 'js', 'typescript'],
@@ -106,6 +119,7 @@ const intentBoosts = {
   course: ['course', 'courses', 'class', 'classes', 'study', 'studied', 'learn', 'learning'],
   discipline: ['discipline', 'major', 'minor', 'focus', 'focused'],
   page: ['resume', 'contact', 'email', 'linkedin', 'background'],
+  blog: ['anthropic', 'presentation', 'talk', 'video', 'blog', 'claude', 'safety'],
 }
 
 function normalize(text) {
@@ -252,6 +266,34 @@ function buildPageDocs() {
       chips: ['Projects', 'Work'],
     },
     {
+      id: 'blog:anthropic-presentation',
+      type: 'blog',
+      title: 'Company Presentation: Anthropic',
+      href: '/blog',
+      summary: 'Dom\'s class presentation on Anthropic — covering their safety-first business model, constitutional AI, Claude Code, financials, and the Pentagon dispute.',
+      description: 'Presented at the University of Michigan. Covers Anthropic\'s founding story, products (Claude AI, Claude Code, API), revenue model, constitutional AI as competitive differentiation, ASL3 activation, and why safety is the business model.',
+      body: [
+        'anthropic claude ai safety constitutional llm enterprise hallucination bioweapon',
+        'founded 2021 san francisco dario daniela amodei openai safety concerns',
+        'valuation 400 billion 380 billion annualized revenue 19 billion 2025 2026',
+        'claude code fastest b2b software ramp history 2.5 billion nine months',
+        'four percent github commits projected twenty percent year end',
+        'api platform paper token enterprise access 70 75 percent revenue',
+        'fortune 500 companies finance healthcare government regulated industries',
+        'constitutional ai model evaluates responses predetermined principles safety guarantee',
+        'asl3 artificial intelligence safety level mass harm potential activated',
+        'pentagon dispute red lines mass surveillance autonomous weapons palantir',
+        'dario amodei 20000 word essay ai safety 2026 bioweapons job loss wealth concentration',
+        'prisoner dilemma safety compute cost cheaper dangerous models',
+        'responsible scaling policy rsp 2024 first billion annualized revenue',
+        'claude 4 2025 opus iq model family chatgpt competitor',
+        'not yet profitable anticipates profitability 2028',
+        'supply chain risk designation government contractors',
+        'university of michigan class presentation entrepreneurship business',
+      ].join(' '),
+      chips: ['Anthropic', 'AI Safety', 'Claude Code', 'Entrepreneurship', 'Presentation'],
+    },
+    {
       id: 'page:resume',
       type: 'page',
       title: 'Resume',
@@ -354,6 +396,8 @@ function typeLabel(type) {
       return 'Course'
     case 'discipline':
       return 'Discipline'
+    case 'blog':
+      return 'Blog'
     default:
       return 'Page'
   }
