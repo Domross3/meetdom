@@ -79,6 +79,28 @@ export default function BlogPage() {
                     </p>
                   )}
 
+                  {/* Thumbnail */}
+                  {post.thumbnail && (
+                    <div className="mt-4 mb-4 rounded-xl overflow-hidden border border-border bg-muted">
+                      <div className="relative aspect-video">
+                        <img
+                          src={post.thumbnail}
+                          alt=""
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                        />
+                        {post.videoUrl && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center group-hover:bg-black/70 transition-colors">
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="flex items-center gap-3 flex-wrap">
                     {post.tags && post.tags.map((tag) => (
                       <span
@@ -88,7 +110,7 @@ export default function BlogPage() {
                         {tag}
                       </span>
                     ))}
-                    {post.videoUrl && (
+                    {!post.thumbnail && post.videoUrl && (
                       <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500" />
                         Video
