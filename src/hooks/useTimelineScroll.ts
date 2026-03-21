@@ -71,8 +71,10 @@ export function useTimelineScroll(semesters: SemesterGroup[]) {
       .filter((c) => c.disciplines.includes(d.key))
       .reduce((sum, c) => sum + c.credits, 0)
 
+    // Semesters are newest-first, so "accumulated so far" means from
+    // activeIndex to the end (the older semesters you've already scrolled past).
     const count = semesters
-      .slice(0, activeIndex + 1)
+      .slice(activeIndex)
       .flatMap((s) => s.courses)
       .filter((c) => c.disciplines.includes(d.key))
       .reduce((sum, c) => sum + c.credits, 0)
@@ -90,7 +92,7 @@ export function useTimelineScroll(semesters: SemesterGroup[]) {
 
   // ── Cumulative credits across all courses up to the active semester ──────────
   const totalAccumulatedCredits = semesters
-    .slice(0, activeIndex + 1)
+    .slice(activeIndex)
     .flatMap((s) => s.courses)
     .reduce((sum, c) => sum + c.credits, 0)
 

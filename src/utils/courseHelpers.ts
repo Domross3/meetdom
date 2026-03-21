@@ -97,7 +97,7 @@ export function groupBySemester(courses: Course[]): SemesterGroup[] {
     map[key].courses.push(course)
   }
 
-  return Object.values(map).sort((a, b) => a.sortKey - b.sortKey)
+  return Object.values(map).sort((a, b) => b.sortKey - a.sortKey)
 }
 
 export function getDisciplineBySlug(slug: string): DisciplineMeta | undefined {
