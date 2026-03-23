@@ -63,7 +63,7 @@ export const posts: Post[] = [
     title: 'Company Presentation — University of Michigan',
     subtitle: 'A presentation I gave at UMich analyzing Anthropic in mid-March 2026.',
     thumbnail: 'https://img.youtube.com/vi/jP5Iwq4oaD8/maxresdefault.jpg',
-    date: '2025-04-01',
+    date: '2026-03-16',
     tags: ['Entrepreneurship', 'UMich'],
     videoUrl: 'https://www.youtube.com/embed/jP5Iwq4oaD8?vq=hd2160&rel=0',
   },
