@@ -43,7 +43,7 @@ export default function ProjectsPage() {
           Projects
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mb-16">
-          Here's what I work on, I guess. Please ask if you're interested about anything.
+          Please reach out if you're interested in learning more.
         </p>
 
         <div className="space-y-6">
