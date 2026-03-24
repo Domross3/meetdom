@@ -14,6 +14,8 @@ export interface Project {
   link?: string
   repo?: string
   resources?: { label: string; url: string }[]
+  pinned?: boolean
+  preview?: string
 }
 
 export const projects: Project[] = [
@@ -67,6 +69,8 @@ export const projects: Project[] = [
     id: 'resume-bot',
     title: 'Resume Tailorer',
     tagline: 'Creating a well-formatted and effective PDF resume when given a master resume and a job description',
+    pinned: true,
+    preview: 'I hated tailoring resumes so much I decided to spend hours building a bot that could do it for me. If you\'re a recruiter reading this, it\'s likely the resume I used to apply was with this bot.',
     description:
       'I hated tailoring resumes so much I decided to spend hours building a bot that could do it for me. If you\'re a recruiter reading this, it\'s likely the resume I used to apply was with this bot. Given LLM\'s several annoying failures, like formatting issues, going over a page, hallucinating data, word redundancy, etc. I decided to make a multi-agent program while having Codex and Claude compete using their own API keys with a budget of five dollars. Claude took off early on and Codex was never able to quite catch up. When each hit a plateau I decided to let them switch projects and Codex helped Claude but Claude\'s assistance couldn\'t save Codex, so I pivoted to just focus on Claude from then on. What I could\'ve tried, but didn\'t feel like it, was switching APIs on the project (so Codex working with Anthropic\'s API and vice versa) but given the difference in the two outputs at that point I hypothesize it wouldn\'t make a significant difference.',
     details:

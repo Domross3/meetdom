@@ -29,8 +29,12 @@ function formatDate(dateStr) {
   return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
 }
 
-// Sort newest first
-const sorted = [...projects].sort((a, b) => b.startDate.localeCompare(a.startDate))
+// Pinned first, then newest
+const sorted = [...projects].sort((a, b) => {
+  if (a.pinned && !b.pinned) return -1
+  if (!a.pinned && b.pinned) return 1
+  return b.startDate.localeCompare(a.startDate)
+})
 
 export default function ProjectsPage() {
   return (
@@ -53,7 +57,25 @@ export default function ProjectsPage() {
               to={`/projects/${project.id}`}
               className="block group"
             >
-              <article className="border border-border rounded-2xl p-6 hover:border-foreground/20 hover:shadow-sm transition-all duration-200">
+              <article className={`border rounded-2xl p-6 transition-all duration-200 hover:shadow-sm ${
+                project.pinned
+                  ? 'border-foreground/20 bg-muted/40 hover:border-foreground/30'
+                  : 'border-border hover:border-foreground/20'
+              }`}>
+
+                {/* Pinned badge */}
+                {project.pinned && (
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <svg
+                      width="11" height="11" viewBox="0 0 24 24" fill="currentColor"
+                      className="text-muted-foreground"
+                    >
+                      <path d="M16 2l-4 4-6 2-2 2 5 5-7 7h2l5-5 5 5 2-2-2-6 4-4V2z" />
+                    </svg>
+                    <span className="text-xs font-medium text-muted-foreground tracking-wide uppercase">Pinned</span>
+                  </div>
+                )}
+
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                   <div>
                     <h2 className="text-xl font-semibold text-foreground group-hover:text-foreground/80 transition-colors">
@@ -71,7 +93,7 @@ export default function ProjectsPage() {
                 </div>
 
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {project.description}
+                  {project.preview || project.description}
                 </p>
 
                 {/* Discipline tags */}
