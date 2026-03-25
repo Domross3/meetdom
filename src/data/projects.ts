@@ -16,6 +16,7 @@ export interface Project {
   resources?: { label: string; url: string }[]
   pinned?: boolean
   preview?: string
+  linkCaveats?: string
 }
 
 export const projects: Project[] = [
@@ -80,6 +81,8 @@ export const projects: Project[] = [
     status: 'in-progress',
     startDate: '2026-03',
     repo: 'https://github.com/Domross3/job-bot-claude',
+    link: 'https://resumeforge-lmgr.onrender.com/',
+    linkCaveats: 'Note: The app was trained around a specific master resume format, takes a while to cold-start on Render\'s free tier, and will only work while I have enough API credits allocated.',
     resources: [
       { label: 'Master Resume (AI-generated)', url: 'https://drive.google.com/file/d/1IR1iDrWcm-cBlvdL-KogVUy9LH43mu0M/view?usp=sharing' },
       { label: 'Sample Tailored Resume', url: 'https://drive.google.com/file/d/1Y92DirU1rd3Fo8O3KG8yghDj9PjJ3_FF/view?usp=sharing' },

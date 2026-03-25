@@ -141,6 +141,12 @@ export default function ProjectDetailPage() {
           </div>
         )}
 
+        {project.linkCaveats && (
+          <p className="text-xs text-muted-foreground -mt-6 mb-10 italic">
+            {project.linkCaveats}
+          </p>
+        )}
+
         {/* Resources */}
         {project.resources && project.resources.length > 0 && (
           <div className="mb-10">
