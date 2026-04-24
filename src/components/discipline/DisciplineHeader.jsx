@@ -7,7 +7,7 @@ const BLURBS = {
         Te occidere possunt sed te edere non possunt nefas est.
       </span>
       <span className="block mt-3">
-        They can kill you, but the legalities of eating you are quite a bit dicier.
+        “They can kill you, but the legalities of eating you are quite a bit dicier.”
       </span>
     </>
   ),
