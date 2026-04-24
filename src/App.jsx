@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from '@/components/layout/NavBar'
+import ScrollToTop from '@/components/layout/ScrollToTop'
 import Landing from '@/pages/Landing'
 import DisciplinePage from '@/pages/DisciplinePage'
 import ProjectsPage from '@/pages/ProjectsPage'
@@ -26,6 +27,7 @@ function TimelineLoader() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
