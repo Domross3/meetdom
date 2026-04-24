@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const BLURBS = {
   cs: (
     <>
-      <span className="block font-display italic text-foreground text-xl leading-snug">
+      <span className="block font-serif italic font-bold text-foreground text-2xl leading-snug">
         Te occidere possunt sed te edere non possunt nefas est.
       </span>
       <span className="block mt-3">
