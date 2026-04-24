@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom'
 
 const BLURBS = {
+  cs: (
+    <>
+      <span className="block font-display italic text-foreground text-xl leading-snug">
+        Te occidere possunt sed te edere non possunt nefas est.
+      </span>
+      <span className="block mt-3">
+        They can kill you, but the legalities of eating you are quite a bit dicier.
+      </span>
+    </>
+  ),
   cogsci:
-    'Your reflection on Cognitive Science — how you pursued both the Computation and Decision tracks, what connected them, and how studying the mind shaped your thinking across CS, philosophy, and entrepreneurship.',
+    'The processes of the mind — its computational machinery, and the nature of how it decides. I took both the computation and decision tracks.',
+  business:
+    'With a last name like mine, I had to get into Ross. Learned the fundamentals of business — and in the one course that shared grade distributions across sections, the non-BBA section outperformed the BBAs.',
+  philosophy:
+    "The most transformative classes I've taken at Michigan. They gave me a compass, and forced me to think critically about how to live.",
+  entrepreneurship: 'I like to build stuff.',
+  extracurricular:
+    'A wide array of classes taken purely out of curiosity — largely responsible for my credit overload.',
 }
 
 export default function DisciplineHeader({ discipline, courseCount }) {
@@ -10,7 +27,7 @@ export default function DisciplineHeader({ discipline, courseCount }) {
 
   const blurb =
     BLURBS[discipline.slug] ??
-    `Your personal reflection on ${discipline.label} — what drew you here, what threads you followed, and how it connects to the rest of your education.`
+    `A personal reflection on ${discipline.label} — what drew me here, what threads I followed, and how it connects to the rest of my education.`
 
   return (
     <div className="pt-28 pb-12 px-6 border-b border-border">
@@ -31,7 +48,6 @@ export default function DisciplineHeader({ discipline, courseCount }) {
           </span>
         </div>
 
-        {/* TODO: Replace with your own words */}
         <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
           {blurb}
         </p>
