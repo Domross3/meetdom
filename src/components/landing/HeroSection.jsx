@@ -15,16 +15,15 @@ export default function HeroSection() {
 
             {/* Headline */}
             <h1 className="font-display text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.08] mb-8">
-              Welcome to my
-              <br />
-              education.
+              Welcome.
             </h1>
 
             {/* Pitch */}
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mb-12">
-              I am majoring in computer science and cognitive science at the University of Michigan,
-              with minors in business, philosophy, and entrepreneurship. Michigan ranks top 10 in all five, which is probably less of a flex
-              and more an explanation for why I haven't graduated yet. I developed this website to make my education more interactive and engaging.
+              I made this page to document and share my educational path. I am currently studying at
+              the University of Michigan with majors in computer science and cognitive science
+              (focusing on computation and decision) with minors in business, philosophy, and
+              entrepreneurship.
             </p>
 
             {/* CTAs */}
