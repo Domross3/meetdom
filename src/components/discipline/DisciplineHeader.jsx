@@ -12,9 +12,9 @@ const BLURBS = {
     </>
   ),
   cogsci:
-    'The processes of the mind — its computational machinery, and the nature of how it decides. I took both the computation and decision tracks.',
+    'The processes of the mind, with focuses on its computational machinery and the nature of how it decides.',
   business:
-    'With a last name like mine, I had to get into Ross. Learned the fundamentals of business — and in the one course that shared grade distributions across sections, the non-BBA section outperformed the BBAs.',
+    'With my last name, I had to get into Ross. Learned the fundamentals of business and a little more.',
   philosophy:
     "The most transformative classes I've taken at Michigan. They gave me a compass, and forced me to think critically about how to live.",
   entrepreneurship: 'I like to build stuff.',
